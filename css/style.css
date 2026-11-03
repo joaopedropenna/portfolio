@@ -97,9 +97,66 @@ h3 { font-size: 1.1rem; }
 
 /* Projetos */
 .projetos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.projeto { background: var(--superficie); border: 1px solid var(--linha); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+.projeto { background: var(--superficie); border: 1px solid var(--linha); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+.projeto-cabecalho { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 .projeto .tecnologias { color: var(--suave); font-size: 0.95rem; margin-top: auto; }
 .projeto .link { font-weight: 600; }
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+.status-ponto {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Status: No ar */
+.status-no-ar {
+  background: #e6f7ed;
+  color: #12793b;
+  border: 1px solid #b8ebca;
+}
+.status-no-ar .status-ponto {
+  background: #199447;
+  box-shadow: 0 0 0 0 rgba(25, 148, 71, 0.6);
+  animation: pulso-status 2s infinite;
+}
+
+/* Status: Em produção */
+.status-producao {
+  background: #eaf1fb;
+  color: var(--destaque-escuro);
+  border: 1px solid #c7dcfa;
+}
+.status-producao .status-ponto {
+  background: var(--destaque);
+}
+
+/* Status: Stand-by */
+.status-standby {
+  background: #fef6e7;
+  color: #925404;
+  border: 1px solid #fde2b3;
+}
+.status-standby .status-ponto {
+  background: #d97706;
+}
+
+@keyframes pulso-status {
+  0% { box-shadow: 0 0 0 0 rgba(25, 148, 71, 0.6); }
+  70% { box-shadow: 0 0 0 5px rgba(25, 148, 71, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(25, 148, 71, 0); }
+}
 
 /* Formação */
 .formacao { list-style: none; display: grid; gap: 18px; }
@@ -128,5 +185,5 @@ h3 { font-size: 1.1rem; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  * { transition: none !important; }
+  * { transition: none !important; animation: none !important; }
 }
